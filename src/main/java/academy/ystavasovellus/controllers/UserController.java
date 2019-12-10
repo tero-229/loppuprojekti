@@ -19,10 +19,17 @@ public class UserController {
         return allUsers;
     }
 
-
     @PostMapping("/edit")
     User editUser(@RequestBody User p) {
         User editedUser = userRepository.save(p);
         return editedUser;
+    }
+
+    public String listToString(List<User> listed) {
+        String toReturn = "";
+        for (User list : listed) {
+            toReturn = toReturn + "<tr> <br/>" + "<td> <a href=" + list.chatWith() + ">" + list.getName() + "</a> </td> <td>"  +  list.getAge() + "</td> <td>" + list.getMaakunta() + "</td><td>" + list.getInfo() + "</td></tr>";
+        }
+        return toReturn;
     }
 }

@@ -12,8 +12,8 @@ public class User {
     private int age;
     private String maakunta;
     private String info;
-    private boolean sportinterest;
-    private boolean freetime;
+    private Boolean sportinterest;
+    private Boolean freetime;
 
     public long getId() {
         return id;
@@ -43,7 +43,7 @@ public class User {
         return maakunta;
     }
 
-    public void setLaani(String maakunta) {
+    public void setMaakunta(String maakunta) {
         this.maakunta = maakunta;
     }
 
@@ -59,7 +59,7 @@ public class User {
         return sportinterest;
     }
 
-    public void setSportinterest(boolean sportinterest) {
+    public void setSportinterest(Boolean sportinterest) {
         this.sportinterest = sportinterest;
     }
 
@@ -67,9 +67,20 @@ public class User {
         return freetime;
     }
 
-    public void setFreetime(boolean freetime) {
+    public void setFreetime(Boolean freetime) {
         this.freetime = freetime;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", maakunta='" + maakunta + '\'' +
+                ", info='" + info + '\'' +
+                ", sportinterest=" + sportinterest +
+                ", freetime=" + freetime +
+                '}';
+    }
 }
