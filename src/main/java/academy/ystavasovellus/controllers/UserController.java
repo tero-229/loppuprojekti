@@ -28,8 +28,10 @@ public class UserController {
     public String listToString(List<User> listed) {
         String toReturn = "";
         for (User list : listed) {
-            toReturn = toReturn + "<tr> <br/>" + "<td> <a href=" + list.chatWith() + ">" + list.getName() + "</a> </td> <td>"  +  list.getAge() + "</td> <td>" + list.getMaakunta() + "</td><td>" + list.getInfo() + "</td></tr>";
+            toReturn = toReturn + "<tr> <br/>" + "<td> <a href=" + ">" + list.getName() + "</a> </td> <td>"  +  list.getAge() + "</td> <td>" + list.getMaakunta() + "</td><td>" + list.getInfo() + "</td></tr>";
         }
         return toReturn;
     }
 }
+
+// + list.chatWith()
