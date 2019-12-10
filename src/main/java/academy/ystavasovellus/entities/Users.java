@@ -3,17 +3,21 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
-    private int age;
-    private String maakunta;
-    private String info;
-    private Boolean sportinterest;
-    private Boolean freetime;
+    @Column(name = "id")
+    public long id;
+    @Column(name = "name")
+    public String name;
+    @Column(name = "age")
+    public int age;
+    @Column(name = "maakunta")
+    public String maakunta;
+    @Column(name = "info")
+    public String info;
+
 
     public long getId() {
         return id;
@@ -55,21 +59,6 @@ public class User {
         this.info = info;
     }
 
-    public boolean isSportinterest() {
-        return sportinterest;
-    }
-
-    public void setSportinterest(Boolean sportinterest) {
-        this.sportinterest = sportinterest;
-    }
-
-    public boolean isFreetime() {
-        return freetime;
-    }
-
-    public void setFreetime(Boolean freetime) {
-        this.freetime = freetime;
-    }
 
     @Override
     public String toString() {
@@ -79,8 +68,6 @@ public class User {
                 ", age=" + age +
                 ", maakunta='" + maakunta + '\'' +
                 ", info='" + info + '\'' +
-                ", sportinterest=" + sportinterest +
-                ", freetime=" + freetime +
                 '}';
     }
 }

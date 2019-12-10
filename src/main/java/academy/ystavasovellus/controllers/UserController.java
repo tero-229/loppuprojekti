@@ -1,9 +1,8 @@
 package academy.ystavasovellus.controllers;
-import academy.ystavasovellus.entities.User;
+import academy.ystavasovellus.entities.Users;
 import academy.ystavasovellus.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -14,20 +13,26 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/listAll")
-    List<User> listAllUsers(){
-        List<User> allUsers = (List<User>) userRepository.findAll();
+    List<Users> listAllUsers(){
+        List<Users> allUsers = (List<Users>) userRepository.findAll();
         return allUsers;
     }
 
+
+    String listUsers(){
+        return listToString(listAllUsers());
+    }
+
+
     @PostMapping("/edit")
-    User editUser(@RequestBody User p) {
-        User editedUser = userRepository.save(p);
+    Users editUser(@RequestBody Users p) {
+        Users editedUser = userRepository.save(p);
         return editedUser;
     }
 
-    public String listToString(List<User> listed) {
+    public String listToString(List<Users> listed) {
         String toReturn = "";
-        for (User list : listed) {
+        for (Users list : listed) {
             toReturn = toReturn + "<tr> <br/>" + "<td> <a href=" + ">" + list.getName() + "</a> </td> <td>"  +  list.getAge() + "</td> <td>" + list.getMaakunta() + "</td><td>" + list.getInfo() + "</td></tr>";
         }
         return toReturn;

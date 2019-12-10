@@ -5,40 +5,40 @@ import java.util.List;
 
 public class Filter {
 
-    public static List<User> filterWithAge(List<User> filtered, int filteredMinAge, int filteredMaxAge) {
-        List<User> foundAge = new ArrayList<>();
-        for (User filt : filtered) {
+    public static List<Users> filterWithAge(List<Users> filtered, int filteredMinAge, int filteredMaxAge) {
+        List<Users> foundAge = new ArrayList<>();
+        for (Users filt : filtered) {
             if (filteredMinAge <= filt.getAge() && filt.getAge() <= filteredMaxAge) {
                 foundAge.add(filt);
             }
         } return foundAge;
     }
 
-    public static List<User> filterWithMaakunta(List<User> filtered, String maakunta) {
-        List<User> foundMaakunta = new ArrayList<>();
-        for (User filt: filtered) {
+    public static List<Users> filterWithMaakunta(List<Users> filtered, String maakunta) {
+        List<Users> foundMaakunta = new ArrayList<>();
+        for (Users filt: filtered) {
             if (maakunta.equals(filt.getMaakunta())) {
                 foundMaakunta.add(filt);
             }
         } return foundMaakunta;
     }
-
-    public static List<User> filteredWithSport(List<User> filtered) {
-        List<User> foundSports = new ArrayList<>();
-        for (User filt : filtered) {
+/*
+    public static List<Users> filteredWithSport(List<Users> filtered) {
+        List<Users> foundSports = new ArrayList<>();
+        for (Users filt : filtered) {
             if (filt.isSportinterest() == true) {
                 foundSports.add(filt);
             }
         } return foundSports;
     }
 
-    public static List<User> filteredWithFreetime(List<User> filtered) {
-        List<User> foundFreetime = new ArrayList<>();
-        for (User filt : filtered) {
+    public static List<Users> filteredWithFreetime(List<Users> filtered) {
+        List<Users> foundFreetime = new ArrayList<>();
+        for (Users filt : filtered) {
             if (filt.isFreetime() == true) {
                 foundFreetime.add(filt);
             }
         } return foundFreetime;
     }
-
+*/
 }
