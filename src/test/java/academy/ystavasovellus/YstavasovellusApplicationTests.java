@@ -8,6 +8,8 @@ class YstavasovellusApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+
 	}
 
 }

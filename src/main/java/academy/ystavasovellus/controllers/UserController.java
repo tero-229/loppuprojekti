@@ -19,8 +19,8 @@ public class UserController {
     }
 
 
-    String listUsers(){
-        return listToString(listAllUsers());
+    String listUsersHTML(){
+        return listToHTML(listAllUsers());
     }
 
 
@@ -30,7 +30,7 @@ public class UserController {
         return editedUser;
     }
 
-    public String listToString(List<Users> listed) {
+    public String listToHTML(List<Users> listed) {
         String toReturn = "";
         for (Users list : listed) {
             toReturn = toReturn + "<tr> <br/>" + "<td> <a href=" + ">" + list.getName() + "</a> </td> <td>"  +  list.getAge() + "</td> <td>" + list.getMaakunta() + "</td><td>" + list.getInfo() + "</td></tr>";

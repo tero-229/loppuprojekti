@@ -62,12 +62,6 @@ public class Users {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", maakunta='" + maakunta + '\'' +
-                ", info='" + info + '\'' +
-                '}';
+        return "Name: " + name  + "Age: " + age + "Maakunta: " + maakunta + "Information: " + info;
     }
 }
