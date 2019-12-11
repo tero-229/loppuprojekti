@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+
 @RequestMapping("/users")
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
 
+    @CrossOrigin
     @GetMapping("/listAll")
     List<Users> listAllUsers(){
         List<Users> allUsers = (List<Users>) userRepository.findAll();
