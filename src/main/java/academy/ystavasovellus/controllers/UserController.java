@@ -13,14 +13,14 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @CrossOrigin
-    @GetMapping("/listAll")
+
     List<Users> listAllUsers(){
         List<Users> allUsers = (List<Users>) userRepository.findAll();
         return allUsers;
     }
 
-
+    @CrossOrigin
+    @GetMapping("/listAll")
     String listUsersHTML(){
         return listToHTML(listAllUsers());
     }
