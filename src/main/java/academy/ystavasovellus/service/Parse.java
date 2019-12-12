@@ -7,8 +7,6 @@ import java.util.List;
 
 public class Parse {
 
-
-
     public static String listToHTML(List<Users> listed) {
         String toReturn = "";
         for (Users list : listed) {
@@ -25,7 +23,5 @@ public class Parse {
         }
         return friends;
     }
-
-
 
 }
