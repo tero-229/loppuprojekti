@@ -1,5 +1,9 @@
 package academy.ystavasovellus.entities;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -17,7 +21,12 @@ public class Users {
     public String maakunta;
     @Column(name = "info")
     public String info;
-
+    @Column(name = "friendlist")
+    public String friendlist;
+    @Column(name = "sports")
+    public Boolean sports;
+    @Column(name = "freetime")
+    public Boolean freetime;
 
     public long getId() {
         return id;
@@ -51,7 +60,8 @@ public class Users {
         this.maakunta = maakunta;
     }
 
-    public String getInfo() {
+    public String getInfo()
+    {
         return info;
     }
 
@@ -60,8 +70,34 @@ public class Users {
     }
 
 
+
+    public Boolean getSports() {
+        return sports;
+    }
+
+    public void setSports(Boolean sports) {
+        this.sports = sports;
+    }
+
+    public Boolean getFreetime() {
+        return freetime;
+    }
+
+    public void setFreetime(Boolean freetime) {
+        this.freetime = freetime;
+    }
+
+    public String getFriendlist() {
+        return friendlist;
+    }
+
+    public void setFriendlist(String friendlist) {
+        this.friendlist = friendlist;
+    }
+
+
     @Override
     public String toString() {
-        return "Name: " + name  + "Age: " + age + "Maakunta: " + maakunta + "Information: " + info;
+        return "Nimi: " + name  + "Ikä: " + age + "Maakunta: " + maakunta + "Lisätiedot: " + info;
     }
 }

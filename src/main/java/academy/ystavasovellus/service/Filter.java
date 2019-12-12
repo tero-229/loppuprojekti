@@ -1,4 +1,6 @@
-package academy.ystavasovellus.entities;
+package academy.ystavasovellus.service;
+
+import academy.ystavasovellus.entities.Users;
 
 import java.util.ArrayList;
 import java.util.List;
