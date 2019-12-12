@@ -14,7 +14,7 @@ import static academy.ystavasovellus.service.Parse.stringToListLong;
 public class UserController {
 
     @Autowired
-    UserRepository userRepository; 
+    UserRepository userRepository;
 
 
     List<Users> listAllUsers(){

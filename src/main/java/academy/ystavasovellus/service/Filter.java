@@ -24,11 +24,11 @@ public class Filter {
             }
         } return foundMaakunta;
     }
-/*
+
     public static List<Users> filteredWithSport(List<Users> filtered) {
         List<Users> foundSports = new ArrayList<>();
         for (Users filt : filtered) {
-            if (filt.isSportinterest() == true) {
+            if (filt.getSports() == true) {
                 foundSports.add(filt);
             }
         } return foundSports;
@@ -37,10 +37,10 @@ public class Filter {
     public static List<Users> filteredWithFreetime(List<Users> filtered) {
         List<Users> foundFreetime = new ArrayList<>();
         for (Users filt : filtered) {
-            if (filt.isFreetime() == true) {
+            if (filt.getFreetime() == true) {
                 foundFreetime.add(filt);
             }
         } return foundFreetime;
     }
-*/
+
 }
