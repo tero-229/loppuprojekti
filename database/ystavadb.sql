@@ -8,3 +8,5 @@ CREATE TABLE users(
                                                                 sports          BOOLEAN         DEFAULT false,
                                                                 freetime        BOOLEAN         DEFAULT false
                                           );
+
+

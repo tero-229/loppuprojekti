@@ -18,7 +18,7 @@ public class Users {
     @Column(name = "age")
     public int age;
     @Column(name = "maakunta")
-    public String maakunta;
+    public String state;
     @Column(name = "info")
     public String info;
     @Column(name = "friendlist")
@@ -52,12 +52,12 @@ public class Users {
         this.age = age;
     }
 
-    public String getMaakunta() {
-        return maakunta;
+    public String getState() {
+        return state;
     }
 
-    public void setMaakunta(String maakunta) {
-        this.maakunta = maakunta;
+    public void setState(String maakunta) {
+        this.state = state;
     }
 
     public String getInfo()
@@ -98,6 +98,6 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Nimi: " + name  + "Ikä: " + age + "Maakunta: " + maakunta + "Lisätiedot: " + info;
+        return "Nimi: " + name  + "Ikä: " + age + "Maakunta: " + state + "Lisätiedot: " + info;
     }
 }

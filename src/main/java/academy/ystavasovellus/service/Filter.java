@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Filter {
-
+/*
     public static List<Users> filterWithAge(List<Users> filtered, int filteredMinAge, int filteredMaxAge) {
         List<Users> foundAge = new ArrayList<>();
         for (Users filt : filtered) {
@@ -16,13 +16,17 @@ public class Filter {
         } return foundAge;
     }
 
-    public static List<Users> filterWithMaakunta(List<Users> filtered, String maakunta) {
-        List<Users> foundMaakunta = new ArrayList<>();
-        for (Users filt: filtered) {
-            if (maakunta.equals(filt.getMaakunta())) {
-                foundMaakunta.add(filt);
+ */
+
+    public static List<Users> filterWithState(List<Users> filtered, String state) {
+        List<Users> foundState = new ArrayList<>();
+        state.toUpperCase();
+        for (Users filt : filtered) {
+            if (state.equals(filt.getState().toUpperCase())) {
+                foundState.add(filt);
             }
-        } return foundMaakunta;
+        }
+        return foundState;
     }
 
     public static List<Users> filteredWithSport(List<Users> filtered) {
@@ -31,7 +35,8 @@ public class Filter {
             if (filt.getSports() == true) {
                 foundSports.add(filt);
             }
-        } return foundSports;
+        }
+        return foundSports;
     }
 
     public static List<Users> filteredWithFreetime(List<Users> filtered) {
@@ -40,7 +45,11 @@ public class Filter {
             if (filt.getFreetime() == true) {
                 foundFreetime.add(filt);
             }
-        } return foundFreetime;
+        }
+        return foundFreetime;
     }
 
+    public static List<Users> noFilter(List<Users> filtered) {
+        return filtered;
+    }
 }

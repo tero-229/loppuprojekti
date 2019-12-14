@@ -17,7 +17,7 @@ public class UserController {
     UserRepository userRepository;
 
 
-    List<Users> listAllUsers(){
+    public List<Users> listAllUsers(){
         List<Users> allUsers = (List<Users>) userRepository.findAll();
         return allUsers;
     }
