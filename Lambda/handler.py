@@ -3,30 +3,32 @@ import boto3
 import os
 from botocore.vendored import requests
 from boto3.dynamodb.conditions import Key, Attr
+import datetime
 
 dynamodb = boto3.resource('dynamodb', region_name='eu-west-1')
-table = dynamodb.Table('ystava-viestit-2')
+table = dynamodb.Table('ystava-viestit-3')
 CHARSET = 'UTF-8'
 
-def saveYstavaQDB(content, sender):
+def saveYstavaQDB(content, receiver):
     response = table.put_item(
         Item={
-            'sender': sender,
+            'receiver': receiver,
             'content': content
             }
     )
 
 def sendEmail(event, context):
     data = event['body']
-    sender = data ['sender']    
+    receiver = data ['receiver']    
     source = data['source']    
     subject = data['subject']
     content = data['content']   
     destination = data['destination']
-    #timestamp = data['timestamp']
+    timestamp = datetime.datetime.now()
 
-    _message = "Message from: " + sender + ". Email: " + source + ". Message content: " + content + "." 
-    saveYstavaQDB(content, sender)
+
+    _message = "Lähettäjä: " + receiver + ": " + content + "." + str(timestamp) + "." 
+    saveYstavaQDB(content, receiver)
     client = boto3.client('ses' )    
         
     response = client.send_email(

@@ -1,4 +1,4 @@
-service: ystavat-loppuprojekti-2
+service: ystavat-loppuprojekti-3
 
 provider:
   name: aws
@@ -44,14 +44,14 @@ resources:
     ystavadynamodb:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ystava-viestit-2
+        TableName: ystava-viestit-3
         AttributeDefinitions:
-          - AttributeName: sender
+          - AttributeName: receiver
             AttributeType: S
           - AttributeName: content
             AttributeType: S
         KeySchema:
-          - AttributeName: sender
+          - AttributeName: receiver
             KeyType: HASH  
           - AttributeName: content
             KeyType: RANGE
