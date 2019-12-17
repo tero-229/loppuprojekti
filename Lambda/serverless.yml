@@ -1,4 +1,4 @@
-service: ystavat-loppuprojekti-3
+service: ystavat-loppuprojekti-5
 
 provider:
   name: aws
@@ -38,22 +38,34 @@ functions:
           response: 
             headers: 
               "Access-Control-Allow_Origin": "'*'"
+  getMessages:
+    handler: get.getMessages
+    description: This function will get messages
+    events:
+      - http:
+          path: "messages"
+          method: get
+          integration: lambda
+          cors: true
+          response: 
+            headers: 
+              "Access-Control-Allow_Origin": "'*'"
+
 
 resources:
   Resources:
     ystavadynamodb:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ystava-viestit-3
         AttributeDefinitions:
-          - AttributeName: receiver
+          - AttributeName: sender
             AttributeType: S
-          - AttributeName: content
+          - AttributeName: timestamp
             AttributeType: S
         KeySchema:
-          - AttributeName: receiver
+          - AttributeName: sender
             KeyType: HASH  
-          - AttributeName: content
+          - AttributeName: timestamp
             KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 5
