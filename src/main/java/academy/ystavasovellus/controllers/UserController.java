@@ -1,20 +1,18 @@
 package academy.ystavasovellus.controllers;
 import academy.ystavasovellus.entities.Users;
 import academy.ystavasovellus.repositories.UserRepository;
-import academy.ystavasovellus.security.UsersPrincipal;
+
 import academy.ystavasovellus.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 import static academy.ystavasovellus.service.Parse.listToHTML;
 import static academy.ystavasovellus.service.Parse.stringToListLong;
@@ -24,7 +22,7 @@ import static academy.ystavasovellus.service.Parse.stringToListLong;
 @RequestMapping("/users")
 public class UserController {
 
-    //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
     @Autowired
     UserService userService;
 
@@ -34,11 +32,9 @@ public class UserController {
 
     UserDetails userDetails;
 
-    @GetMapping("/username")
-    public String nonono(Authentication authentication){
-        return userService.getCurrentUser(authentication).getUsername();
-    }
-// Principalista => user
+
+
+
 
     public List<Users> listAllUsers(){
         List<Users> allUsers = (List<Users>) userRepository.findAll();
@@ -53,15 +49,13 @@ public class UserController {
     }
 
 //
-/*
+
     @PostMapping("/edit")
     @RequestMapping(value="/index.html", method = RequestMethod.POST)
-    void editProfile(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") String age, @RequestParam("state") String state, @RequestParam("info") String info) {
+     void editProfile(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") String age, @RequestParam("state") String state, @RequestParam("info") String info) {
     //(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") int age, @RequestParam("state") String state, @RequestParam("info") String info) {
 
-
-
-          Users activeUser = userRepository.findByUsername();
+          Users activeUser = userRepository.findByUsername(userService.getCurrentUsername());
 
             if (!first_name.isEmpty()) {
                 activeUser.setFirstName(first_name);
@@ -88,17 +82,17 @@ public class UserController {
             }
 
         }
-*/
-/*
+
+
     @CrossOrigin
     @GetMapping("/friendlist")
     public String viewFriends() {
-        String username = String.valueOf(activeUser());
+        String username = userService.getCurrentUsername();
         Users meUser = userRepository.findByUsername(username);
         return listFriendsHTML(meUser.friendlist);
 
     }
-*/
+
     String listFriendsHTML(String friends){
         return listToHTML(longListToUsers(stringToListLong(friends)));
     }
@@ -117,7 +111,10 @@ public class UserController {
     }
 
 
+
     }
+
+
 
 /*
     public Users returnActiveUser(String token){
