@@ -6,17 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Filter {
-/*
-    public static List<Users> filterWithAge(List<Users> filtered, int filteredMinAge, int filteredMaxAge) {
-        List<Users> foundAge = new ArrayList<>();
-        for (Users filt : filtered) {
-            if (filteredMinAge <= filt.getAge() && filt.getAge() <= filteredMaxAge) {
-                foundAge.add(filt);
-            }
-        } return foundAge;
-    }
 
- */
 
     public static List<Users> filterWithState(List<Users> filtered, String state) {
         List<Users> foundState = new ArrayList<>();

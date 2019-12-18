@@ -17,8 +17,5 @@ public interface UserRepository extends CrudRepository<Users, Long> {
     Users findByConfirmationToken(String confirmationToken);
     Users findByUsername(String username);
 
-   /*@Query("UPDATE Users u SET u.lastLogin=:lastLogin WHERE u.username = ?#{ principal?.username }")
-    @Modifying
-    @Transactional
-    public void updateLastLogin(@Param("lastLogin") Date lastLogin);*/
+
 }

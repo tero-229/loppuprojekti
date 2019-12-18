@@ -25,6 +25,4 @@ public class FriendlistController {
         userRepository.save(meUser);
     }
 
-
-// identifikaation tarvitsee   user.getConfirmationToken    Users user = userService.findByConfirmationToken(token);
 }

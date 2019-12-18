@@ -13,7 +13,6 @@ public class UsersPrincipal implements UserDetails {
 
         private final Users user;
 
-        //
 
         public UsersPrincipal(Users user) {
             this.user = user;
@@ -54,7 +53,7 @@ public class UsersPrincipal implements UserDetails {
             return true;
         }
 
-        //
+
 
         public Users getUser() {
             return user;

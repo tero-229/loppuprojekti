@@ -20,17 +20,11 @@ public class SearchController {
     @Autowired
     UserRepository userRepository;
 
-
-
-
-
-
-
     @CrossOrigin
     @PostMapping("/friends")
     void searchUser(@RequestBody Search p) {
         List<Users> allUsers = (List<Users>) userRepository.findAll();
-        if(p.searchState != null && p.neutral == true) {
+        if(p.searchState != null) {
             filterWithState(allUsers, p.searchState);
         } else if(p.searchState != null && p.searchSport == true) {
             filteredWithSport(filterWithState(allUsers, p.searchState));

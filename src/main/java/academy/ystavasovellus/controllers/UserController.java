@@ -29,11 +29,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-
     UserDetails userDetails;
-
-
-
 
 
     public List<Users> listAllUsers(){
@@ -48,11 +44,16 @@ public class UserController {
         return listToHTML(listAllUsers());
     }
 
-//
+    @CrossOrigin
+    @GetMapping("/getid")
+    public long getActiveUsersId() {
+        Users activeUser = userRepository.findByUsername(userService.getCurrentUsername());
+        return activeUser.getId();
+    }
 
     @PostMapping("/edit")
     @RequestMapping(value="/index.html", method = RequestMethod.POST)
-     void editProfile(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") String age, @RequestParam("state") String state, @RequestParam("info") String info) {
+     public void editProfile(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") String age, @RequestParam("state") String state, @RequestParam("info") String info) {
     //(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") int age, @RequestParam("state") String state, @RequestParam("info") String info) {
 
           Users activeUser = userRepository.findByUsername(userService.getCurrentUsername());
@@ -115,19 +116,3 @@ public class UserController {
     }
 
 
-
-/*
-    public Users returnActiveUser(String token){
-        List<Users> allUsers = (List<Users>) userRepository.findAll();
-        Users activeUser = new Users();
-        for (Users user : allUsers) {
-            if(user.getConfirmationToken().equals(token)) {
-                activeUser = user;
-            }
-        } return activeUser;
-    }
-    */
-
-
-
-//  user.getConfirmationToken   Users user = userService.findByConfirmationToken(token);  userService.saveUser(user);
