@@ -40,17 +40,10 @@ public class Users implements Serializable {
     @Email(message = "Please provide a valid e-mail")
     @NotEmpty(message = "Please provide an e-mail")
     private String email;
-
-
     @Column(name="picturl")
     public String picturl;
-
-
-
     @Column(name = "password")
     private String password;
-
-
     @Column(name = "enabled")
     private boolean enabled = true;
 
