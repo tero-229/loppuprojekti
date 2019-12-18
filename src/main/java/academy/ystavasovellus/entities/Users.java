@@ -1,20 +1,23 @@
 package academy.ystavasovellus.entities;
-import org.hibernate.annotations.Type;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.util.Arrays;
-import java.util.List;
+import java.io.Serializable;
+
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class Users implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public long id;
+    @JoinColumn(name = "username")
+    @NotEmpty(message = "Please provide your username")
+    private String username;
     @Column(name = "first_name")
     @NotEmpty(message = "Please provide your first name")
     private String firstName;
@@ -22,7 +25,7 @@ public class Users {
     @NotEmpty(message = "Please provide your last name")
     private String lastName;
     @Column(name = "age")
-    public int age;
+    public int age = 0;
     @Column(name = "state")
     public String state;
     @Column(name = "info")
@@ -30,24 +33,35 @@ public class Users {
     @Column(name = "friendlist")
     public String friendlist;
     @Column(name = "sports")
-    public Boolean sports;
+    public boolean sports = false;
     @Column(name = "freetime")
-    public Boolean freetime;
-
+    public boolean freetime = false;
     @Column(name = "email", nullable = false, unique = true)
     @Email(message = "Please provide a valid e-mail")
     @NotEmpty(message = "Please provide an e-mail")
     private String email;
 
+
+    @Column(name="picturl")
+    public String picturl;
+
+
+
     @Column(name = "password")
-    @Transient
     private String password;
 
+
     @Column(name = "enabled")
-    private boolean enabled;
+    private boolean enabled = true;
 
     @Column(name = "confirmation_token")
     private String confirmationToken;
+
+    @Transient
+    @OneToOne(targetEntity = Authority.class)
+    private Authority authority;
+
+    public Users() {}
 
     public long getId() {
         return id;
@@ -55,6 +69,14 @@ public class Users {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
@@ -130,8 +152,6 @@ public class Users {
         this.info = info;
     }
 
-
-
     public Boolean getSports() {
         return sports;
     }
@@ -156,6 +176,21 @@ public class Users {
         this.friendlist = friendlist;
     }
 
+    public String getPicturl() {
+        return picturl;
+    }
+
+    public void setPicturl(String picturl) {
+        this.picturl = picturl;
+    }
+
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
+    }
 
     @Override
     public String toString() {

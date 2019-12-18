@@ -1,7 +1,5 @@
 package academy.ystavasovellus.entities;
 
-import javax.persistence.Entity;
-
 
 public class Search {
     public String searchState;
