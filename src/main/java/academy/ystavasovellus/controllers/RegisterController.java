@@ -69,11 +69,12 @@ public class RegisterController {
             // Generate random 36-character string token for confirmation link
             user.setConfirmationToken(UUID.randomUUID().toString());
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            userService.saveUser(user);
             Authority authority = new Authority();
             authority.setUsername(user.getUsername());
             authority.setAuthority("ROLE_USER");
             authorityRepository.save(authority);
-            userService.saveUser(user);
+
 
 
         }
