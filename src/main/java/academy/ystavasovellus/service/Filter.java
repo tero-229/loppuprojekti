@@ -18,7 +18,7 @@ public class Filter {
         return foundState;
     }
 
-    // Ottaa listan käyttäjiä ja Stringinä asuinpaikan. Palauttaa listan käyttäjistä, jotka asuvat annetulla asuinpaikalla.
+    // Ottaa listan käyttäjiä ja Stringinä asuinpaikan. Palauttaa listan käyttäjistä, jotka asuvat annetulla asuinpaikalla. toUpperCase muutos etsinnän kohteelle ja etsittäville puuttuu eli case sensitive.
 
     public static List<Users> filteredWithSport(List<Users> filtered) {
         List<Users> foundSports = new ArrayList<>();
