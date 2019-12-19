@@ -1,6 +1,8 @@
 package academy.ystavasovellus.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -44,7 +46,6 @@ public class Users implements Serializable {
 
     @Column(name="picturl")
     public String picturl;
-
 
 
     @Column(name = "password")

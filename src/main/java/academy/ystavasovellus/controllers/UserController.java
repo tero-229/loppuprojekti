@@ -51,6 +51,33 @@ public class UserController {
         return activeUser.getId();
     }
 
+    @CrossOrigin
+    @GetMapping("/getfirstname")
+    public String getActiveUsersFN() {
+        Users activeUser = userRepository.findByUsername(userService.getCurrentUsername());
+        return activeUser.getFirstName();
+    }
+
+    @CrossOrigin
+    @GetMapping("/getuser")
+    public Users getCurrentUser() {
+        return userRepository.findByUsername(userService.getCurrentUsername());
+    }
+
+    @CrossOrigin
+    @GetMapping("/getlastname")
+    public String getActiveUsersLN() {
+        Users activeUser = userRepository.findByUsername(userService.getCurrentUsername());
+        return activeUser.getLastName();
+    }
+
+
+    @PostMapping("/edit")
+    public void editProfile(@RequestBody Users editedUser) {
+        userRepository.save(editedUser);
+    }
+
+/*
     @PostMapping("/edit")
     @RequestMapping(value="/index.html", method = RequestMethod.POST)
      public void editProfile(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") String age, @RequestParam("state") String state, @RequestParam("info") String info) {
@@ -83,7 +110,7 @@ public class UserController {
             }
 
         }
-
+*/
 
     @CrossOrigin
     @GetMapping("/friendlist")

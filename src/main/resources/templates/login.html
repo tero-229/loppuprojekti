@@ -17,11 +17,18 @@
             </tr>
 			
             <tr>
-                <td><input name="submit" type="submit" value="submit" /></td>
+                <td><input name="submit" type="submit" value="submit" onclick="myFunction()"></td>
+                <script>
+                    function myFunction() {
+                        location.replace("/welcome")
+                    }
+                </script>
             </tr>
         </table>
 
     </form>
+
+
 
 </body>
 </html>

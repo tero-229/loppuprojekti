@@ -11,7 +11,7 @@
 <meta name="author" content="" />
 <link rel="icon" href="favicon.ico" />
 
-<title>User Registration with Spring Boot</title>
+<title>Rekisteröidy Ystäväsovellukseen</title>
 
 <!-- Bootstrap core CSS -->
 <link
@@ -30,7 +30,7 @@
       
       <hr />
 
-      <h4>New User Registration</h4>
+      <h4>Rekisteröityminen</h4>
 
       <form autocomplete="off" action="#" th:action="@{/register}"
         th:object="${user}" method="post" class="m-t" role="form"
@@ -70,7 +70,7 @@
           </span>
           
           <input type="text" th:field="*{firstName}"
-            placeholder="First Name" class="form-control" required />
+            placeholder="Etunimi" class="form-control" required />
           <span class="glyphicon form-control-feedback"
             aria-hidden="true"></span>
         </div>
@@ -80,7 +80,7 @@
             <span class="glyphicon glyphicon-user"></span>
           </span>
           <input type="text" th:field="*{lastName}"
-            placeholder="Last Name" class="form-control" required />
+            placeholder="Sukunimi" class="form-control" required />
           <span class="glyphicon form-control-feedback"
             aria-hidden="true"></span>
         </div>
@@ -90,7 +90,7 @@
             <span class="glyphicon glyphicon-user"></span>
           </span>
           <input type="text" th:field="*{username}"
-                 placeholder="Username" class="form-control" required />
+                 placeholder="Käyttäjänimi" class="form-control" required />
           <span class="glyphicon form-control-feedback"
                 aria-hidden="true"></span>
         </div>
@@ -100,7 +100,7 @@
             <span class="glyphicon glyphicon-user"></span>
           </span>
           <input type="text" th:field="*{password}"
-                 placeholder="Password" class="form-control" required />
+                 placeholder="Salasana" class="form-control" required />
           <span class="glyphicon form-control-feedback"
                 aria-hidden="true"></span>
         </div>
@@ -111,7 +111,7 @@
             <span class="glyphicon glyphicon-envelope"></span>
           </span>
           <input type="email" th:field="*{email}"
-            placeholder="Email Address" class="form-control"
+            placeholder="Sähköpostiosoite" class="form-control"
             data-error="This email address is invalid" required />
           <span class="glyphicon form-control-feedback"
             aria-hidden="true"></span>
@@ -119,7 +119,7 @@
         
 
         <button type="submit"
-          class="btn btn-primary block full-width m-b">Register</button>
+          class="btn btn-primary block full-width m-b">Rekisteröidy</button>
 
       </form>
        <p class="m-t">

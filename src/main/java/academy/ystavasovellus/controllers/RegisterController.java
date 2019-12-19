@@ -86,7 +86,7 @@ public class RegisterController {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication auth = securityContext.getAuthentication();
         if(auth != null && auth.isAuthenticated()){
-            return "redirect:/index";
+            return "/welcome.html";
         }
         else return "login";
     }

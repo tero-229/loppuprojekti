@@ -54,22 +54,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         <br>
         <br>
 
+          <div class="mb-5">
+              <p class="lead mb-3"><span id="nimi"></span></p>
+
         <form id="editForm">
             
             <div class="row mb-4">
                 <div class="col-md-12">
-           
-            <input type="name" class="form-control" placeholder="Etunimesi" name="name" required></div></div>
-            <div class="row mb-4">
-                <div class="col-md-12">
-            
-          
-            <input type="name" class="form-control" placeholder="Ikäsi" name="age" required></div></div>
+
+            <input type="name" class="form-control" placeholder="Ikäsi" name="age"></div></div>
 
             <div class="row mb-4">
                 <div class="col-md-12">
            
-            <input type="name" class="form-control" placeholder="Maakunta" name="maakunta" required></div></div>
+            <input type="name" class="form-control" placeholder="Kaupunki" name="state"></div></div>
 
             <div class="row mb-4">
                 <div class="col-md-12">
@@ -80,7 +78,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
             <button type="submit" class="btn btn-primary btn-block" id="submit">Päivitä profiili</button>
           </form>
-        <script >
+
+          <script type="text/javascript">
+
+
+              var req = new XMLHttpRequest();
+              let jsonResponse;
+              const urli ='http://localhost:8080/users/getuser';
+              req.responseType = 'json';
+              req.open('GET', urli, true);
+              req.onload  = function() {
+                  jsonResponse = req.response;
+                  document.getElementById("nimi").innerHTML = "<p>" + jsonResponse.firstName + " " + jsonResponse.lastName + "</p>";
+
+              };
+              req.send();
+
+
+
         const form = document.getElementById('editForm')
         const url = 'http://localhost:8080/users/edit'
         const toast = document.getElementById('toast')
@@ -99,80 +114,40 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         });
         req.send(JSON.stringify(body));
         }
-        function success () {
-        toast.innerHTML = 'Profiilisi on päivitetty'
-        submit.disabled = false
-        submit.blur()
-        form.name.focus()
-        form.age.value = ''
-        form.maakunta.value = ''
-        form.info.value = ''
-        }
-        function error (err) {
-        toast.innerHTML = 'Tapahtui virhe, kokeile uudestaan.'
-        submit.disabled = false
-        console.log(err)
+            function success () {
+                toast.innerHTML = 'Profiilisi on päivitetty'
+                submit.disabled = false
+                submit.blur()
+
+                form.age.value = ''
+                form.state.value = ''
+                form.info.value = ' '
+            }
+            function error (err) {
+            toast.innerHTML = 'Tapahtui virhe, kokeile uudestaan.'
+            submit.disabled = false
+            console.log(err)
         }
 
         form.addEventListener('submit', function (e) {
-        e.preventDefault()
-        toast.innerHTML = 'Profiilia päivitetään...'
-        submit.disabled = true
+            e.preventDefault()
+            toast.innerHTML = 'Profiilisi on päivitetty'
+            submit.disabled = true
 
-        const payload = {
-        name: form.name.value,
-        age: form.age.value,
-        maakunta: form.maakunta.value,
-        info: form.info.value,
-        id: 4 //tää pitäisi saada sitten profiilista tulemaan..
-        }
-        post(url, payload, function (err, res) {
-        if (err) { return error(err) }
-        success()
-        })
+            jsonResponse.age = form.age.value;
+            jsonResponse.state = form.state.value;
+            jsonResponse.info = form.info.value;
+
+            const payload = jsonResponse;
+
+            console.log(payload);
+            post(url, payload, function (err, res) {
+            if (err) { return error(err) }
+            success()
+            })
         })
         </script>
 
-        <!-- <h2 class="mb-4 mt-5">Services</h2>
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-android-cart"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">eCommerce Websites</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati totam.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-bonfire"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Branding Identity </a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati, totam.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-videocamera"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Video Editing</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati totam.</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-6 col-lg-6 mb-4">
-            <div class="media custom-media  d-block">
-              <div class="icon mr-3"><span class="ion-cube"></span></div>
-              <div class="media-body">
-                <h3 class="mt-0"><a href="#">Web Applications </a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed obcaecati, totam.</p>
-              </div>
-            </div>
-          </div> -->
         </div>
         
       </main>
