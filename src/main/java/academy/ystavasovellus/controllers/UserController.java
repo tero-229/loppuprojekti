@@ -22,7 +22,6 @@ import static academy.ystavasovellus.service.Parse.stringToListLong;
 @RequestMapping("/users")
 public class UserController {
 
-
     @Autowired
     UserService userService;
 
@@ -30,7 +29,6 @@ public class UserController {
     UserRepository userRepository;
 
     UserDetails userDetails;
-
 
     public List<Users> listAllUsers(){
         List<Users> allUsers = (List<Users>) userRepository.findAll();
