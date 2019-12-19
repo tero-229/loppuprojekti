@@ -67,7 +67,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             <div class="row mb-4">
                 <div class="col-md-12">
            
+
             <input type="name" class="form-control" placeholder="Kaupunki" name="state"></div></div>
+
 
             <div class="row mb-4">
                 <div class="col-md-12">
@@ -114,6 +116,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         });
         req.send(JSON.stringify(body));
         }
+
             function success () {
                 toast.innerHTML = 'Profiilisi on päivitetty'
                 submit.disabled = false
@@ -145,6 +148,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             if (err) { return error(err) }
             success()
             })
+
         })
         </script>
 

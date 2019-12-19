@@ -73,8 +73,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                // .successHandler(successHandler)
                 .and()
-                .csrf()
-                .disable();
+                .csrf().disable();
     }
 
     @Bean

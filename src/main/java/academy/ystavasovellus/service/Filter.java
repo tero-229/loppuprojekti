@@ -8,16 +8,15 @@ import java.util.List;
 public class Filter {
 
 
-    public static List<Users> filterWithState(List<Users> filtered, String state) {
-        List<Users> foundState = new ArrayList<>();
-        state.toUpperCase();
-        for (Users filt : filtered) {
-            if (state.equals(filt.getState().toUpperCase())) {
-                foundState.add(filt);
+        public static List<Users> filterWithState(List<Users> filtered, String state) {
+            List<Users> foundState = new ArrayList<>();
+            for (Users filt : filtered) {
+                if (state.equals(filt.getState())) {
+                    foundState.add(filt);
+                }
             }
+            return foundState;
         }
-        return foundState;
-    }
 
     public static List<Users> filteredWithSport(List<Users> filtered) {
         List<Users> foundSports = new ArrayList<>();
