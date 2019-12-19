@@ -8,9 +8,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static academy.ystavasovellus.service.Filter.*;
+import static academy.ystavasovellus.service.Parse.listToHTML;
 
 
 @RestController
@@ -22,24 +24,24 @@ public class SearchController {
 
     @CrossOrigin
     @PostMapping("/friends")
-    void searchUser(@RequestBody Search p) {
+    String searchUser(@RequestBody String searchState) {
+        List<Users> foundUsers = new ArrayList<>();
         List<Users> allUsers = (List<Users>) userRepository.findAll();
-        if(p.searchState != null) {
-            filterWithState(allUsers, p.searchState);
-        } else if(p.searchState != null && p.searchSport == true) {
-            filteredWithSport(filterWithState(allUsers, p.searchState));
-        } else if(p.searchState != null && p.searchFreetime == true) {
-            filteredWithFreetime(filterWithState(allUsers, p.searchState));
-        } else if(p.searchState == null && p.searchSport == true) {
-            filteredWithSport(allUsers);
-        } else if(p.searchState == null && p.searchFreetime == true) {
-            filteredWithFreetime(allUsers);
-        } else {
-            noFilter(allUsers);
-        }
-
+        if(!(searchState.isEmpty())) {
+            // foundUsers = filterWithState(allUsers, searchState);
+            //  } else if(p.searchState != null && p.searchSport == true) {
+            // filteredWithSport(filterWithState(allUsers, p.searchState));
+            // } else if(p.searchState != null && p.searchFreetime == true) {
+            //     filteredWithFreetime(filterWithState(allUsers, p.searchState));
+            // } else if(p.searchState == null && p.searchSport == true) {
+            //   filteredWithSport(allUsers);
+            // } else if(p.searchState == null && p.searchFreetime == true) {
+            //   filteredWithFreetime(allUsers);
+            //} else {
+            //foundUsers = noFilter(allUsers);
+        } return listToHTML(filterWithState(allUsers, searchState));
     }
-
-    // POST-metodi, joka ottaa vastaan Search-luokan objektin ja sovittaa sitä Filter-metodeihin if-lausekkeiden mukaan. Esim. jos etsitään ystävää Hämeestä niin metodi palauttaa käyttäjät Hämeestä.
 }
+    // POST-metodi, joka ottaa vastaan Search-luokan objektin ja sovittaa sitä Filter-metodeihin if-lausekkeiden mukaan. Esim. jos etsitään ystävää Hämeestä niin metodi palauttaa käyttäjät Hämeestä.
+
 

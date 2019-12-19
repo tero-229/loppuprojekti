@@ -187,6 +187,6 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        return "Nimi: " + firstName + " " + "lastName"  + "Ikä: " + age + "Maakunta: " + state + "Lisätiedot: " + info;
+        return "Nimi: " + firstName + " " + lastName  + " Ikä: " + age + " State: " + state + " Lisätiedot: " + info;
     }
 }

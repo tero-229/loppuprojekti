@@ -10,9 +10,8 @@ public class Filter {
 
     public static List<Users> filterWithState(List<Users> filtered, String state) {
         List<Users> foundState = new ArrayList<>();
-        state.toUpperCase();
         for (Users filt : filtered) {
-            if (state.equals(filt.getState().toUpperCase())) {
+            if (state.equals(filt.getState())) {
                 foundState.add(filt);
             }
         }
