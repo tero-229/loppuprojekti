@@ -55,4 +55,3 @@ def sendEmail(event, context):
         Source=source,
     )
     return _message
-

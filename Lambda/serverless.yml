@@ -70,3 +70,6 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
+
+plugins:
+  - serverless-python-requirements
