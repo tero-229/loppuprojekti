@@ -40,4 +40,6 @@ public class UserService {
         return userDetails.getUsername();
 
     }
+
+    // Metodilla saadaan aktiivisen käyttäjän käyttäjänimi tunnistautumista varten.
 }

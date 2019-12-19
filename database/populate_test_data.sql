@@ -1,9 +1,45 @@
-INSERT INTO users(id, username, first_name, last_name, age, state, info, friendlist, sports, freetime, confirmation_token, email, enabled, password)
-VALUES (3, 'samppa','Sam', 'Laakso', 32, 'Pirkanmaa', 'info', '2,3', false, false, 'm6qbvjk9lwodkr8cqjjmwvakh5fgqm5scyp3', 'cjsyren@gmail.com', true, '{bcrypt}$2b$10$XKhiW0k9GETTs4V8UvDSi.1ib7bDGElXA/qiBf4h7tECsOkhDzU5e'),
-       (5, 'tinaf','Tina', 'Friman', 29, 'Häme', 'info', '1,4', false, true, 'mxx7cts418mxzm4r926tiwpn1biwlpcneja1', 'hotmail@hotmail.com', true, 'plaaLplaa123'),
-       (6, 'timppa','Tim', 'Joojoo', 19,  'Lappi', 'info', '1,4', true, true, 'ko3r1xs1f4hgehmpfna8dtzihqhxyei6ys0k', 'hotmail2@hotmail.com', true, 'plaaLplaa123'),
-       (7, 'blue','Marge', 'Simpson', 41, 'Uusimaa', 'info', '2,3', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv9c', 'hotmail3@hotmail.com', true, 'plaaLplaa123');
 
+INSERT INTO users(id, username, first_name, last_name, age, state, info, friendlist, sports, freetime, confirmation_token, email, enabled, password, picturl)
+VALUES (21, 'samppa','Sam', 'Laakso', 32, 'Pirkanmaa', 'Sam on Laakson suvun vesa.', '2,3,', false, false, 'm6qbvjk9lwodkr8cqjjmwvakh5fgqm5scyp3', 'cjsyren@gmail.com', true, '{bcrypt}$2b$10$XKhiW0k9GETTs4V8UvDSi.1ib7bDGElXA/qiBf4h7tECsOkhDzU5e', 'url'),
+       (22, 'tinaf','Tina', 'Friman', 29, 'Häme', 'Tina Friman nauttii kuutamokävelyistä.', '1,4,', false, true, 'mxx7cts418mxzm4r926tiwpn1biwlpcneja1', 'hotmail@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (23, 'timppa','Tim', 'Joojoo', 19,  'Lappi', 'Tim on vanhaa Joojoon sukua, joka polveutuu von Joojoon aatelissuvusta.', '1,4', true, true, 'ko3r1xs1f4hgehmpfna8dtzihqhxyei6ys0k', 'hotmail2@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (4, 'blue','Marge', 'Simpson', 41, 'Uusimaa', 'Marge on kolmen lapsen kotiäiti.', '2,3,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv9c', 'hotmail3@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (5, 'blue2','John', 'Johnson', 71, 'Pirkanmaa', 'John on vanha.', '17,3,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv1c', 'hotmail4@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (6, 'blue3','Bert', 'Dudman', 18, 'Uusimaa', 'Bert tykkää lukea.', '19,11,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv2c', 'hotmail5@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (7, 'blue4','Claudia', 'Schiffer', 49, 'Lappi', 'Tuu juttelee :)', '2,3,5,8,11,14,16', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv3c', 'hotmail6@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (8, 'blue5','Frank', 'Reed', 28, 'Pirkanmaa', 'Etin lätkäseuraa!', '9,20,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv4c', 'hotmail7@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (9, 'blue6','Vertti', 'Albin', 42, 'Lappi', 'Oon yksinäinen. :(', '12,13,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv5c', 'hotmail8@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (10, 'blue7','Erkki', 'Jutmann', 18, 'Pirkanmaa', 'Jutmann on vähä ku Suomen Batman', '7,13,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv6c', 'hotmail9@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (11, 'blue8','Chris', 'Keller', 38, 'Uusimaa', 'WHY IS EVERYTHING IN FINNISH?!', '1,16,19,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv7c', 'hotmail10@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (12, 'blue9','Daavid', 'av Goljatti', 80, 'Häme', 'Nimien suhteen ideat alkaa loppuun :/', '4,17,18,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqv8c', 'hotmail11@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (13, 'blue11','Ruupertti', 'Zandarilainen', 45, 'Pirkanmaa', 'Ruupertti on nimeni ja... mikään ei rimmaa Ruupertin kanssa.', '2,3,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqn9c', 'hotmail12@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (14, 'blue12','Thyfir', 'Backman', 22, 'Uusimaa', 'Asun Ruskeasuolla.', '5,8,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqc9c', 'hotmail13@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (15, 'blue13','Annastiina', 'Koppanen', 29, 'Uusimaa', 'Etsin paria tennikseen!', '7,9,20,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqx9c', 'hotmail14@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (16, 'blue14','Lira', 'Huopanen', 62, 'Häme', 'Kutomisseuraa?', '1,2,3,6,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqz9c', 'hotmail15@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (17, 'blue15','Tazz', 'Remun', 47, 'Pirkanmaa', 'Tazz tanssii ja kaipaa tanssikumppania!', '7,9,13,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqa9c', 'hotmail16@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (18, 'blue16','Gary', 'Champman', 93, 'Lappi', 'Ikä on vain Integer', '8,9,10,12,14', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqs9c', 'hotmail17@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (19, 'blue17','Heimo', 'Huima', 44, 'Uusimaa', 'Minulla on lentolupakirja.', '3,5,7,8,12,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqd9c', 'hotmail18@hotmail.com', true, 'plaaLplaa123', 'url'),
+       (20, 'blue18','Paavo', 'Nurmi', 21, 'Häme', 'Kova kunto ja tykkää juosta.', '13,14,15,16,18,19,', true, false, 'cenbcqudenef75iqwy4tjo5ku319n34fqf9c', 'hotmail19@hotmail.com', true, 'plaaLplaa123', 'url');
 
-
-
+INSERT INTO authorities(username, authority)
+VALUES ('samppa', 'ROLE_USER'),
+       ('tinaf', 'ROLE_USER'),
+       ('timppa', 'ROLE_USER'),
+       ('blue', 'ROLE_USER'),
+       ('blue2', 'ROLE_USER'),
+       ('blue3', 'ROLE_USER'),
+       ('blue4', 'ROLE_USER'),
+       ('blue5', 'ROLE_USER'),
+       ('blue6', 'ROLE_USER'),
+       ('blue7', 'ROLE_USER'),
+       ('blue8', 'ROLE_USER'),
+       ('blue9', 'ROLE_USER'),
+       ('blue10', 'ROLE_USER'),
+       ('blue11', 'ROLE_USER'),
+       ('blue12', 'ROLE_USER'),
+       ('blue13', 'ROLE_USER'),
+       ('blue14', 'ROLE_USER'),
+       ('blue15', 'ROLE_USER'),
+       ('blue16', 'ROLE_USER'),
+       ('blue17', 'ROLE_USER'),
+       ('blue18', 'ROLE_USER');

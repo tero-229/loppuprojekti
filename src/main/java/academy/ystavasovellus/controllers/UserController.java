@@ -22,7 +22,6 @@ import static academy.ystavasovellus.service.Parse.stringToListLong;
 @RequestMapping("/users")
 public class UserController {
 
-
     @Autowired
     UserService userService;
 
@@ -31,12 +30,12 @@ public class UserController {
 
     UserDetails userDetails;
 
-
     public List<Users> listAllUsers(){
         List<Users> allUsers = (List<Users>) userRepository.findAll();
         return allUsers;
     }
 
+    // Listaa kaikki käyttäjät.
 
     @CrossOrigin
     @GetMapping("/listAll")
@@ -44,12 +43,16 @@ public class UserController {
         return listToHTML(listAllUsers());
     }
 
+    // Listaa kaikki käyttäjät ja kääntää ne Stringiksi HTML-formaattiin (formaatti: Etunimi & Sukunimi (url-linkkinä), Ikä, Asuinpaikka ja Lisätiedot).
+
     @CrossOrigin
     @GetMapping("/getid")
     public long getActiveUsersId() {
         Users activeUser = userRepository.findByUsername(userService.getCurrentUsername());
         return activeUser.getId();
     }
+
+    // Toimittaa aktiivisen käyttäjän id:n (long).
 
     @CrossOrigin
     @GetMapping("/getfirstname")
@@ -71,60 +74,27 @@ public class UserController {
         return activeUser.getLastName();
     }
 
-
     @PostMapping("/edit")
     public void editProfile(@RequestBody Users editedUser) {
         userRepository.save(editedUser);
     }
 
-/*
-    @PostMapping("/edit")
-    @RequestMapping(value="/index.html", method = RequestMethod.POST)
-     public void editProfile(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") String age, @RequestParam("state") String state, @RequestParam("info") String info) {
-    //(@RequestParam("first_name") String first_name, @RequestParam("last_name") String last_name, @RequestParam("age") int age, @RequestParam("state") String state, @RequestParam("info") String info) {
-
-          Users activeUser = userRepository.findByUsername(userService.getCurrentUsername());
-
-            if (!first_name.isEmpty()) {
-                activeUser.setFirstName(first_name);
-            }
-            if (!last_name.isEmpty()) {
-                activeUser.setLastName(last_name);
-            }
-            if (!String.valueOf(age).isEmpty()) {
-                try {
-                    activeUser.setAge(Integer.valueOf(age));
-                } catch (NumberFormatException ex) {
-                    System.out.println("Error! Age has to be an integer.");
-                    if (!state.isEmpty()) {
-                        activeUser.setState(state);
-                    }
-                    if (!info.isEmpty()) {
-                        activeUser.setInfo(info);
-                    }
-                    {
-                        userRepository.save(activeUser);
-                    }
-
-                }
-            }
-
-        }
-*/
+    // Ottaa uudet tiedot POST-metodina käyttöliittymästä ja tallettaa ne. Käyttötarkoitus: frontend pystyy muokkaamaan profiilia ja kohdistamaan sen getActiveUsersId-metodin kanssa oikeaan käyttäjään DB:ssä.
 
     @CrossOrigin
     @GetMapping("/friendlist")
     public String viewFriends() {
-        String username = userService.getCurrentUsername();
-        Users meUser = userRepository.findByUsername(username);
+        Users meUser = userRepository.findByUsername(userService.getCurrentUsername());
         return listFriendsHTML(meUser.friendlist);
-
     }
+
+    // Palauttaa Stringinä aktiivisen käyttäjän ystävälistan ja kääntää sen HTML-formaattiin.
 
     String listFriendsHTML(String friends){
         return listToHTML(longListToUsers(stringToListLong(friends)));
     }
 
+    // Metodi, joka tiivistää kolmen eri metodin toiminnot itseensä. Ystävälista(string) -> longeista koostuva lista -> lista muutetaan käyttäjistä koostuvaksi listaksi -> lista muutetaan HTML-muotoon käyttöliittymää varten.
 
     public List<Users> longListToUsers(List<Long> friends) {
         List<Users> allUsers = (List<Users>) userRepository.findAll();
@@ -138,7 +108,7 @@ public class UserController {
         }  return foundFriends;
     }
 
-
+    // Muuttaa saamansa long-muotoisen ystävälistan ja palauttaa käyttäjämuotoisen listan.
 
     }
 

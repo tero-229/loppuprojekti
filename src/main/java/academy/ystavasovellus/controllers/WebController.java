@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WebController {
+
     @RequestMapping(value = "/welcome")
     public String welcome() {
         return "welcome";
@@ -39,6 +40,5 @@ public class WebController {
     public String chat () {
         return "chat";
     }
-
 
 }

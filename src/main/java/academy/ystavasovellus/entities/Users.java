@@ -1,13 +1,9 @@
 package academy.ystavasovellus.entities;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-
 
 @Entity
 @Table(name = "users")
@@ -42,19 +38,12 @@ public class Users implements Serializable {
     @Email(message = "Please provide a valid e-mail")
     @NotEmpty(message = "Please provide an e-mail")
     private String email;
-
-
     @Column(name="picturl")
     public String picturl;
-
-
     @Column(name = "password")
     private String password;
-
-
     @Column(name = "enabled")
     private boolean enabled = true;
-
     @Column(name = "confirmation_token")
     private String confirmationToken;
 
@@ -196,5 +185,6 @@ public class Users implements Serializable {
     @Override
     public String toString() {
         return "Nimi: " + firstName + " " + lastName  + " Ikä: " + age + " Asuinpaikka " + state + " Lisätiedot: " + info;
+
     }
 }
