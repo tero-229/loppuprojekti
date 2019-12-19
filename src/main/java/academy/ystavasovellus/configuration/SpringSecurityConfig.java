@@ -70,6 +70,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/welcome").authenticated()
                 .and()
                 .formLogin()
+                .defaultSuccessUrl("/welcome")
                 .permitAll()
                // .successHandler(successHandler)
                 .and()

@@ -46,7 +46,7 @@ public class RegisterController {
 
     // Process form input data
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView processRegistrationForm(ModelAndView modelAndView, @Valid Users user, BindingResult bindingResult, HttpServletRequest request) {
+    public String processRegistrationForm(ModelAndView modelAndView, @Valid Users user, BindingResult bindingResult, HttpServletRequest request) {
 
         // Lookup user in database by e-mail
         Users userExists = userService.findByEmail(user.getEmail());
@@ -78,7 +78,7 @@ public class RegisterController {
 
 
         }
-            return modelAndView;
+            return "login";
         }
 
     @RequestMapping("/login")
@@ -86,7 +86,7 @@ public class RegisterController {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication auth = securityContext.getAuthentication();
         if(auth != null && auth.isAuthenticated()){
-            return "/welcome.html";
+                return "/welcome";
         }
         else return "login";
     }
