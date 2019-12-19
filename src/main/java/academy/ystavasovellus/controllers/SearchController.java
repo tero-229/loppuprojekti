@@ -39,4 +39,7 @@ public class SearchController {
         }
 
     }
+
+    // POST-metodi, joka ottaa vastaan Search-luokan objektin ja sovittaa sitä Filter-metodeihin if-lausekkeiden mukaan. Esim. jos etsitään ystävää Hämeestä niin metodi palauttaa käyttäjät Hämeestä.
 }
+

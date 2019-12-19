@@ -19,6 +19,8 @@ public class Filter {
         return foundState;
     }
 
+    // Ottaa listan käyttäjiä ja Stringinä asuinpaikan. Palauttaa listan käyttäjistä, jotka asuvat annetulla asuinpaikalla.
+
     public static List<Users> filteredWithSport(List<Users> filtered) {
         List<Users> foundSports = new ArrayList<>();
         for (Users filt : filtered) {
@@ -28,6 +30,8 @@ public class Filter {
         }
         return foundSports;
     }
+
+    // Ottaa sisään listan käyttäjistä ja palauttaa listan käyttäjistä, jotka ovat kiinnostuneita urheiluseurasta
 
     public static List<Users> filteredWithFreetime(List<Users> filtered) {
         List<Users> foundFreetime = new ArrayList<>();
@@ -39,7 +43,11 @@ public class Filter {
         return foundFreetime;
     }
 
+    // Ottaa sisään listan käyttäjistä ja palauttaa listan käyttäjistä, jotka ovat kiinnostuneita vapaa-ajan seurasta.
+
     public static List<Users> noFilter(List<Users> filtered) {
         return filtered;
     }
+
+    // Filtteri ilman filtteriä. Eli palauttaa mitä saa.
 }

@@ -25,4 +25,6 @@ public class FriendlistController {
         userRepository.save(meUser);
     }
 
+    // GET-piste, jonka avulla metodille toimitettu käyttäjä lisätään aktiivisen käyttäjän ystävälistaan.
+
 }

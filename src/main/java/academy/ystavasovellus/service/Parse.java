@@ -15,6 +15,8 @@ public class Parse {
         return toReturn;
     }
 
+    // Ottaa sisään listan käyttäjistä ja palauttaa annetun listan Stringinä HTML-formaattina käyttöliittymää varten. Formaatti: Etunimi & Sukunimi (url-linkkinä), Ikä, Asuinpaikka ja Lisätiedot.
+
     public static List<Long> stringToListLong(String friendlist) {
         List<Long> friends = new ArrayList<>();
         String[] temporary = friendlist.split(",");
@@ -23,5 +25,7 @@ public class Parse {
         }
         return friends;
     }
+
+    // Ottaa sisään String-muotoisen ystävälistan (eroteltuna pilkulla) ja palauttaa ystävälistan long-muotoisena eroteltuaan Stringin.
 
 }
